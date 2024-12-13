@@ -7,8 +7,10 @@ import ProductDetails from '../components/ProductDetails';
 import { productsLoader } from '../services/loaders/ProductsLoader';
 import { ProductsDetailsLoader } from '../services/loaders/ProductDetailsLoader';
 import {NewProductAction} from '../services/actions/NewProductAction';
+import NotFound from '../pages/NotFound';
+import Login from '../pages/Login';
 
-export const router = createBrowserRouter({
+export const router = createBrowserRouter([{
     path: '/',
     element: <Layout/>,
     children:[
@@ -22,12 +24,25 @@ export const router = createBrowserRouter({
             loader: productsLoader,
             children: [
                 { path: '/products/create-product', element: <FormNewProduct/>, action: <NewProductAction/>},
-                {path: '/products/:id', element: <ProductDetails/>, loader:ProductsDetailsLoader}
+                {path: '/products/:id', element: <ProductDetails/>, loader:ProductsDetailsLoader},
+                {
+                    path: '/customers',
+                    element: <Layout/>,
+                },
+                {
+                    path: '*',
+                    element: <NotFound/>
+                }
             ]
         },
         {
-            path: '/*',
-            element: <NotFound/>
+            path: '/login',
+            element: <Login/>
         },
+       
+        {
+            path: '*',
+            element: <NotFound/>
+        }
     ]
-})
+}]);
