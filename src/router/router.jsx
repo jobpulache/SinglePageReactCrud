@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Products from '../pages/Products';
 import FormNewProduct from '../components/FormNewProduct';
 import ProductDetails from '../components/ProductDetails';
+import { productsLoader } from '../services/loaders/ProductsLoader';
 
 export const router = createBrowserRouter({
     path: '/',
