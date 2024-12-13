@@ -6,6 +6,7 @@ import Products from '../pages/Products';
 import FormNewProduct from '../components/FormNewProduct';
 import ProductDetails from '../components/ProductDetails';
 import { productsLoader } from '../services/loaders/ProductsLoader';
+import { ProductsDetailsLoader } from '../services/loaders/ProductDetailsLoader';
 
 export const router = createBrowserRouter({
     path: '/',
@@ -21,7 +22,7 @@ export const router = createBrowserRouter({
             loader: productsLoader,
             children: [
                 { path: '/products/create-product', element: <FormNewProduct/>, action: <NewProductAction/>},
-                {path: '/products/:id', element: <ProductDetails/>, loader:ProductDetailsLoader}
+                {path: '/products/:id', element: <ProductDetails/>, loader:ProductsDetailsLoader}
             ]
         }
     ]
