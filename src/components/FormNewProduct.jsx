@@ -22,6 +22,7 @@ export default function FormNewProduct() {
             <Link className="nav-link" to='..'>
               Cancel
             </Link>
+            
           </div>
           <button>Submit</button>
         </div>
