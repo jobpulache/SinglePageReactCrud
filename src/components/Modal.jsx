@@ -1,5 +1,20 @@
-export default function Modal() {
+import { useNavigate } from 'react-router-dom'
+
+import classes from '../assets/css/Modal.module.css'
+
+export default function Modal({ children }) {
+  const navigate = useNavigate();
+
+  function closeHandler(){
+    navigate('..');
+  }
+
   return (
-    <div>Modal</div>
+    <>
+      <div className={classes.backdrop} onClick={closeHandler} />
+      <dialog open className={classes.modal}>
+        {children}
+      </dialog>
+    </>
   )
 }
