@@ -11,6 +11,7 @@ import NotFound from '../pages/NotFound';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import Register from '../pages/Register';
+import Customers from '../pages/Customers';
 
 export const router = createBrowserRouter([
     {
@@ -21,16 +22,23 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home />,
             },
+            
+           
             {
                 path: '/products',
-        element: <Products />,
-        loader: productsLoader,
-        children: [
-          { path: '/products/create-product', element: <FormNewProduct />, action: NewProductAction },
-          { path: '/products/:id', element: <ProductDetails />, loader: ProductsDetailsLoader}
-                    
+                element: <Products />,
+                loader: productsLoader,
+                children: [
+                    { path: '/products/create-product', element: <FormNewProduct />, action: NewProductAction },
+                    { path: '/products/:id', element: <ProductDetails />, loader: ProductsDetailsLoader }
+
                 ],
             },
+            {
+                path: '/customers',
+                element: <Customers/>
+            },
+           
             {
                 path: '/login',
                 element: <Login />,
@@ -39,6 +47,7 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register />,
             },
+           
             {
                 path: '/dashboard',
                 element: <Dashboard />,
