@@ -1,5 +1,5 @@
 export default function Customers() {
   return (
-    <div>Customers</div>
+    <div className="container">Customers</div>
   )
 }
